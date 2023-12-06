@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Kegiatan TK Ar Rasyid</title>
+    <style>
+        body {
+            background-color: #2E7D32;
+            font-family: Arial, sans-serif;
+        }
 
+        .judul {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            padding-top: 20px;
+        }
+
+        .laporan {
+            background-color: greenyellow;
+            margin: 50px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .laporan p {
+            text-align: justify;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .laporan h3 {
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="judul">
+        <h1>Laporan Kegiatan TK Ar Rasyid</h1>
+    </div>
+
+    <div class="laporan">
+        <h3>Kegiatan Hari Pertama</h3>
+        <p>
+            Pada hari pertama, para murid melakukan perkenalan diri. Selanjutnya, mereka menghafal Surat Al-Fatihah. 
+            Pada siang hari, mereka mengikuti pertemuan pendampingan di tingkat kelas. Kegiatan dilanjutkan 
+            dengan olah raga sebagai salah satu cara menjaga kesehatan tubuh dan jiwa.
+        </p>
+
+        <h3>Kegiatan Hari Kedua</h3>
+        <p>
+            Pada hari kedua, para murid belajar baca Al Qur'an dengan cara berdoa dan mengucapkan salam 
+            dengan menggunakan handsign islami. Kemudian, mereka mengikuti pelajaran tatib sebagai langkah 
+            awal dalam mempelajari ilmu tajwid. Sore hari, mereka dibagi menjadi beberapa kelompok untuk 
+            belajar aktivitas menghitung angka sampai 10.
+        </p>
+
+        <h3>Kegiatan Hari Ketiga</h3>
+        <p>
+            Pada hari ketiga, para murid mengikuti pelajaran Bahasa Arab yang dijelaskan oleh pengajar 
+            yang berkompeten. Kegiatan selanjutnya adalah pengajian Nabi Muhammad SAW dan wahyu Al Qur'an. 
+            Kegiatan dilanjutkan dengan bermain game "Temukan Benda-benda Islam" sebagai ajang mengajak 
+            para murid untuk lebih tau tentang kehidupan islam di hari ini.
+        </p>
+    </div>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Kegiatan Guru TK Ar Rasyid</title>
+    <style>
+        body {
+            background-color: #2E7D32;
+            font-family: Arial, sans-serif;
+        }
+
+        .judul {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            padding-top: 20px;
+        }
+
+        .laporan {
+            background-color: greenyellow;
+            margin: 50px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .laporan p {
+            text-align: justify;
+            color: black;
+            font-size: 16px;
+        }
+
+        .laporan h3 {
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="judul">
+        <h1>Laporan Kegiatan Guru TK Ar Rasyid</h1>
+    </div>
+
+    <div class="laporan">
+        <h3>Kegiatan Hari Pertama</h3>
+        <p>
+            Pada hari pertama, Guru mengajar para murid mengenai tatib dan sikap islam. Selanjutnya, 
+            guru mengajar tentang wahyu Al Qur'an dan kajian tentang nabi Muhammad SAW. 
+            Siang harinya, guru mengajar Bahasa Arab dengan menggunakan berbagai teknik belajar yang 
+            menyenangkan dan mudah dimengerti oleh para murid.
+        </p>
+
+        <h3>Kegiatan Hari Kedua</h3>
+        <p>
+            Pada hari kedua, guru melaksanakan tugas yang lebih sering dilakukan seperti 
+            mengajar pelajaran Nabi Muhammad SAW dan mengajar tentang surat Al-Fatihah. 
+            Selain itu, guru juga melaksanakan evaluasi pada hasil belajar murid mengenai bacaan 
+            alquran, wahyu Al Qur'an, dan nabi Muhammad SAW.
+        </p>
+
+        <h3>Kegiatan Hari Ketiga</h3>
+        <p>
+            Pada hari ketiga, guru melaksanakan kegiatan mentoring yang biasa dilakukan pada 
+            hari selasa dan hari kamis. Selain itu, guru juga mengadakan diskusi kelompok dengan 
+            para murid tentang pelajaran yang telah diberikan.
+        </p>
+    </div>
+</body>
+</html>
