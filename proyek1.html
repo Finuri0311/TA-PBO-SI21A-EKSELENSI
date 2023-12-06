@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #34a853;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f9a825;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ef8304;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #34a853;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</h1>
+        <form id="formAbsensi">
+            <div class="form-group">
+                <label for="namaGuru">Nama Guru</label>
+                <input type="text" id="namaGuru" name="namaGuru" required>
+            </div>
+            <div class="form-group">
+                <label for="statusAbsensi">Status Absensi</label>
+                <select id="statusAbsensi" name="statusAbsensi" required>
+                    <option value="hadir">Hadir</option>
+                    <option value="izin">Izin</option>
+                    <option value="sakit">Sakit</option>
+                    <option value="alpha">Alpha</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tanggalAbsensi">Tanggal Absensi</label>
+                <input type="date" id="tanggalAbsensi" name="tanggalAbsensi" required>
+            </div>
+            <button type="submit" class="btn">Simpan Absensi</button>
+        </form>
+        <h2>Data Absensi Guru</h2>
+        <table id="dataAbsensi">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Guru</th>
+                    <th>Status Absensi</th>
+                    <th>Tanggal Absensi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data akan ditampilkan disini -->
+                
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.getElementById('formAbsensi').addEventListener('submit', function
