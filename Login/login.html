@@ -1,33 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Halaman_Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			background-color: #f2f2f2;
-			font-family: Arial, sans-serif;
-		}
-		form {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Absensi Guru TK</title>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('OIP.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+       
+        form {
 			background-color: #fff;
 			border-radius: 5px;
 			box-shadow: 0px 0px 10px #888888;
 			margin: 0 auto;
 			padding: 20px;
 			width: 400px;
+        }
+
+        
+        h2 {
+			color: #4CAF50;
+			text-align: center;
 		}
-		input[type=text], input[type=password] {
+
+
+        .section_area{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+
+        .section_input{
+            border-radius: 9px;
+			border: none;
+			display: block;
+			font-size: 12px;
+			margin-top: 10px 0;
+			padding: 10px;
+			width: 100%;
+        }
+
+ 
+        .txt_component {
 			border-radius: 3px;
 			border: none;
 			box-shadow: 0px 0px 5px #888888;
 			display: block;
 			font-size: 16px;
-			margin: 10px 0;
+			margin-top: 10px 0;
 			padding: 10px;
 			width: 100%;
-		}
-		input[type=submit] {
+        }
+
+
+        .btn_login {
 			background-color: #4CAF50;
 			border: none;
 			border-radius: 3px;
@@ -37,24 +75,48 @@
 			margin-top: 10px;
 			padding: 10px;
 			width: 100%;
-		}
-		input[type=submit]:hover {
-			background-color: #3e8e41;
-		}
-		h2 {
-			color: #4CAF50;
-			text-align: center;
-		}
-	</style>
+        }
+    </style>
 </head>
 <body>
-	<form>
-		<h2>Login Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</h2>
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" placeholder="Masukkan username">
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" placeholder="Masukkan password">
-		<input type="submit" value="Login">
-	</form>
+
+    <form> 
+        <h2>Login Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</h2>
+
+        <!-- Area Username -->
+
+        <section class="section_area">
+        <!-- Area Label -->
+        <section class="section_label">
+            <label for="txt_username">Username:</label>
+        </section>
+
+        <!-- Area input -->
+        <section class="section_input">
+            <input type="text" name="txt_username" id="txt_username"
+            maxlength="10" placeholder="Masukan NIM" 
+            class="txt_component">
+        </section>
+
+
+        <!-- Area Password -->
+
+        <section class="section_area">
+            <!-- Area Label -->
+            <section class="section_label">
+                <label for="txt_password">Password:</label>
+            </section>
+    
+            <!-- Area input -->
+            <section class="section_input">
+                <input type="text" name="txt_password" id="txt_password"
+                maxlength="6" placeholder="Masukan Password" 
+                class="txt_component">
+            </section>
+
+            <!-- Area Buton -->
+            <button type="submit" class="btn_login">Login</button>
+    </form>
+
 </body>
 </html>
