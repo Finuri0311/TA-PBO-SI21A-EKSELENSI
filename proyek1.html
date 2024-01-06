@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</title>
+    <title>Absensi Guru dan Laporan Kegiatan di TK Ar-Rasyid</title>
 
     <style>
+
 
         body {
             font-family: Arial, sans-serif;
@@ -29,6 +30,8 @@
 
         .form-group {
             margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto; 
         }
 
         .form-group label {
@@ -93,7 +96,7 @@
 
 <body>
     <div class="container">
-        <h1>Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</h1>
+        <h1>Absensi Guru dan Laporan Kegiatan di TK Ar-Rasyid</h1>
         <form id="formAbsensi">
             <div class="form-group">
                 <label for="namaGuru">Nama Guru</label>
@@ -109,6 +112,10 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="waktuAbsensi">Waktu Absensi</label>
+                <input type="time" id="waktuAbsensi" name="waktuAbsensi" required>
+            </div>
+            <div class="form-group">
                 <label for="tanggalAbsensi">Tanggal Absensi</label>
                 <input type="date" id="tanggalAbsensi" name="tanggalAbsensi" required>
             </div>
@@ -121,6 +128,7 @@
                     <th>No</th>
                     <th>Nama Guru</th>
                     <th>Status Absensi</th>
+                    <th>Waktu Absensi</th>
                     <th>Tanggal Absensi</th>
                 </tr>
             </thead>
@@ -132,33 +140,68 @@
     </div>
     <script>
 
-        document.getElementById('formAbsensi').addEventListener('submit', function (event) {
-        event.preventDefault(); // Mencegah form untuk melakukan submit default
+document.getElementById('formAbsensi').addEventListener('submit', function (event) {
+    event.preventDefault(); // Mencegah form untuk melakukan submit default
 
-        // Mendapatkan nilai dari input form
-        var namaGuru = document.getElementById('namaGuru').value;
-        var statusAbsensi = document.getElementById('statusAbsensi').value;
-        var tanggalAbsensi = document.getElementById('tanggalAbsensi').value;
+    // Mendapatkan nilai dari input form
+    var namaGuru = document.getElementById('namaGuru').value;
+    var statusAbsensi = document.getElementById('statusAbsensi').value;
+    var waktuAbsensi = document.getElementById('waktuAbsensi').value;
+    var tanggalAbsensi = document.getElementById('tanggalAbsensi').value;
 
-        // Membuat elemen baris baru pada tabel
-        var table = document.getElementById('dataAbsensi').getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow(table.rows.length);
+    // Membuat elemen baris baru pada tabel
+    var table = document.getElementById('dataAbsensi').getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.rows.length);
 
-        // Menambahkan sel-sel pada baris baru
-        var cellNo = newRow.insertCell(0);
-        var cellNamaGuru = newRow.insertCell(1);
-        var cellStatusAbsensi = newRow.insertCell(2);
-        var cellTanggalAbsensi = newRow.insertCell(3);
+    // Menambahkan sel-sel pada baris baru
+    var cellNo = newRow.insertCell(0);
+    var cellNamaGuru = newRow.insertCell(1);
+    var cellStatusAbsensi = newRow.insertCell(2);
+    var cellwaktuAbsensi = newRow.insertCell(3);
+    var cellTanggalAbsensi = newRow.insertCell(4);
 
-        // Mengisi nilai sel dengan data yang diinputkan
-        cellNo.innerHTML = table.rows.length;
-        cellNamaGuru.innerHTML = namaGuru;
-        cellStatusAbsensi.innerHTML = statusAbsensi;
-        cellTanggalAbsensi.innerHTML = tanggalAbsensi;
+    // Mengisi nilai sel dengan data yang diinputkan
+    cellNo.innerHTML = table.rows.length;
+    cellNamaGuru.innerHTML = namaGuru;
+    cellStatusAbsensi.innerHTML = statusAbsensi;
+    cellwaktuAbsensi.innerHTML = waktuAbsensi;
+    cellTanggalAbsensi.innerHTML = tanggalAbsensi;
 
-        // Mengosongkan input form setelah disubmit
-        document.getElementById('namaGuru').value = '';
-        document.getElementById('statusAbsensi').value = 'hadir';
-        document.getElementById('tanggalAbsensi').value = '';
-    });
+    // Mengosongkan input form setelah disubmit
+    document.getElementById('namaGuru').value = '';
+    document.getElementById('statusAbsensi').value = '';
+    document.getElementById('waktuAbsensi').value = '';
+    document.getElementById('tanggalAbsensi').value = '';
+});
+
+    document.getElementById('formAbsensi').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var namaGuru = document.getElementById('namaGuru').value;
+            var statusAbsensi = document.getElementById('statusAbsensi').value;
+            var waktuAbsensi = document.getElementById('waktuAbsensi').value;
+            var tanggalAbsensi = document.getElementById('tanggalAbsensi').value;
+
+            var table = document.getElementById('dataAbsensi').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+ 
+            var cellNamaGuru = newRow.insertCell(1);
+            var cellStatusAbsensi = newRow.insertCell(2);
+            var cellWaktuAbsensi = newRow.insertCell(3);
+            var cellTanggalAbsensi = newRow.insertCell(4);
+
+            cellNo.innerHTML = table.rows.length;
+            cellNamaGuru.innerHTML = namaGuru;
+            cellStatusAbsensi.innerHTML = statusAbsensi;
+            cellWaktuAbsensi.innerHTML = waktuAbsensi;
+            cellTanggalAbsensi.innerHTML = tanggalAbsensi;
+
+            document.getElementById('namaGuru').value = '';
+            document.getElementById('statusAbsensi').value = 'hadir';
+            document.getElementById('waktuAbsensi').value = '';
+            document.getElementById('tanggalAbsensi').value = '';
+        });
 </script>
+
+</body>
+</html>
