@@ -3,209 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan_Kegiatan_TK_Ar-Rasyid</title>
+    <title>Kegiatan TK Ar-Rasyid</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-<style>
-    .area_component {
-      display: flex;
-      align-items: center;
-      margin: 10px;
-    }
-    .area_label {
-      width: 15%;
-    }
-    .area_input {
-      width: 85%;
-    }
-    .txt_component {
-      width: 30%;
-    }
-    .btn_component {
-      outline: 0;
-      border-radius: 25px;
-      border: 1px solid grey;
-      height: 40px;
-      padding: 10px 30px;
-      cursor: pointer;
-      background: greenyellow;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid green;
+        }
 
-    .frame_table {
-      border: 1px solid black;
-      height: 30px;
-      padding: 10px;
-    }
+        th {
+            background-color: green;
+        }
 
-    .frame_header {
-      background: greenyellow;
-      height: 30px;
-      padding: 10px;
-    }
-
-    .remove_cell {
-      background-color: green;
-      cursor: pointer;
-    }
-  </style>
+        tr:hover {background-color: #f5f5f5;}
+    </style>
 </head>
 <body>
-  
-  <section class="area_component">
-    
-    <section class="area_label">
-      <label for="txt_tgl">Tanggal</label>
-    </section>
+    <h1>Kegiatan TK Ar-Rasyid</h1>
+    <table id="kegiatanTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Tanggal</th>
+                <th>Nama Kegiatan</th>
+                <th>Keterangan</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Data akan dimasukkan ke sini -->
+        </tbody>
+    </table>
 
-   
-    <section class="area_input">
-      <input
-        type="text"
-        name=""
-        id="txt_tgl"
-        placeholder="Isi Tanggal"
-        class="txt_component"
-      />
-    </section>
-  </section>
+    <button onclick="tambahData()">Tambah Data</button>
 
-  <section class="area_component">
-    <section class="area_label">
-      <label for="txt_Kegiatan">Nama Kegiatan</label>
-    </section>
+    <script>
+        // Data dummy
+        const data = [
+            {
+                tanggal: '12/02/2023',
+                namaKegiatan: 'Hari Bersama Guru',
+                keterangan: 'Acara bersama guru dan siswa untuk meningkatkan hubungan',
+                foto: '1.jpg'
+            },
+            {
+                tanggal: '19/02/2023',
+                namaKegiatan: 'Pameran Seni',
+                keterangan: 'Olahraga',
+                foto: '2.jpg'
+            }
+        ];
 
-    <section class="area_input">
-      <input
-        type="text"
-        name=""
-        id="txt_Kegiatan"
-        placeholder="Isi Nama Kegiatan"
-        class="txt_component"
-      />
-    </section>
-  </section>
+        // Fungsi untuk menambahkan data ke tabel
+        function tambahData() {
+            const tableBody = document.getElementById('tableBody');
+            const newRow = tableBody.insertRow();
 
-  <section class="area_component">
-    
-    <section class="area_label">
-      <label for="txt_keterangan">Keterangan</label>
-    </section>
+            // Menambah kolom nomor
+            const nomorCell = newRow.insertCell();
+            nomorCell.textContent = data.length + 1;
 
-   
-    <section class="area_input">
-      <input
-        type="text"
-        name=""
-        id="txt_keterangan"
-        placeholder="Isi Keterangan"
-        class="txt_component"
-      />
-    </section>
-  </section>
+            // Menambah kolom tanggal
+            const tanggalCell = newRow.insertCell();
+            tanggalCell.textContent = data[data.length - 1].tanggal;
 
-    <section class="area_component">
-        <button id="btn_tambah" class="btn_component">Tambah Data</button>
-    </section>
+            // Menambah kolom nama kegiatan
+            const namaKegiatanCell = newRow.insertCell();
+            namaKegiatanCell.textContent = data[data.length - 1].namaKegiatan;
 
-    <body><h1>Kegiatan TK Ar-rasyid</h1></body>
-    
-  <table id="tbl_data">
-    
-    <tr>
-      <th class="frame_table frame_header" style="width: 10%">No.</th>
-      <th class="frame_table frame_header" style="width: 15%">Tanggal</th>
-      <th class="frame_table frame_header" style="width: 25%">Nama_Kegiatan</th>
-      <th class="frame_table frame_header" style="width: 50%">Keterangan</th>
-    </tr>
-  </table>
+            // Menambah kolom keterangan
+            const keteranganCell = newRow.insertCell();
+            keteranganCell.textContent = data[data.length - 1].keterangan;
 
-  
-  <script>
-    let txt_tgl = document.querySelector("#txt_tgl");
-    let txt_nama_kegiatan = document.querySelector("#txt_nama_kegiatan");
-    let btn_tambah = document.querySelector("#btn_tambah");
-    let tbl_data = document.querySelector("#tbl_data");
+            // Menambah kolom foto
+            const fotoCell = newRow.insertCell();
+            const fotoImg = document.createElement('img');
+            fotoImg.src = data[data.length - 1].foto;
+            fotoImg.width = 150;
+            fotoCell.appendChild(fotoImg);
+        }
 
-    let data = [];
+        // Menambahkan data ke tabel
+        data.forEach(item => {
+            const tableBody = document.getElementById('tableBody');
+            const newRow = tableBody.insertRow();
 
-    
-    btn_tambah.addEventListener("click", () => {
-      
-      if (txt_tgl.value == "" || txt_nama_kegiatan.value == "") {
-        
-        alert("Lengkapi Seluruh Data !");
-      }
-      
-      else {
-       
-        data.push([txt_tgl.value, txt_nama_kegiatan.value]);
+            // Menambah kolom nomor
+            const nomorCell = newRow.insertCell();
+            nomorCell.textContent = data.indexOf(item) + 1;
 
-        viewData();
-      }
-    });
+            // Menambah kolom tanggal
+            const tanggalCell = newRow.insertCell();
+            tanggalCell.textContent = item.tanggal;
 
-    const clearComponent = () => {
-      txt_tgk.value = "";
-      txt_nama_kegiatan.value = "";
-    }
-    
-    const viewData = () => {
-      
-      let baris_tabel = 0;
-      
-      let content_tabel = `<tr>
-      <th class="frame_table" style="width: 10%">No.</th>
-      <th class="frame_table" style="width: 15%">Tanggal</th>
-      <th class="frame_table" style="width: 25%">Nama_Kegiatan</th>
-      <th class="frame_table" style="width: 50%">Keterangan</th>
-    </tr>`;
+            // Menambah kolom nama kegiatan
+            const namaKegiatanCell = newRow.insertCell();
+            namaKegiatanCell.textContent = item.namaKegiatan;
 
-      
-      data.forEach((isi_data, looping_data) => {
-        
-        content_tabel += "<tr>";
+            // Menambah kolom keterangan
+            const keteranganCell = newRow.insertCell();
+            keteranganCell.textContent = item.keterangan;
 
-        
-        content_tabel += `<td class="frame_table remove_cell" style="text-align: center" onclick="removeData(${looping_data})">Hapus Data</td>`;
-        
-        content_tabel += `<td class="frame_table" style="text-align: center">${looping_data+1}</td>`;
-        
-        content_tabel += `<td class="frame_table" style="text-align: center">${isi_data[0]}</td>`;
-        
-        content_tabel += `<td class="frame_table">${isi_data[1]}</td>`;
-
-        content_tabel += "</tr>";
-
-        baris_tabel++;
-      });
-
-      
-      tbl_data.innerHTML = content_tabel;
-
-      clearComponent();
-    };
-
-    const removeData = (index) => {
-      
-      if (
-        confirm(
-          `Data Kegiatan : ${data[index][1]} (index ke-${index}) Ingin Dihapus ?`
-        ) == true
-      ) {
-        
-        data.splice(index, 1);
-
-        
-        viewData();
-      }
-    };
-  </script>
+            // Menambah kolom foto
+            const fotoCell = newRow.insertCell();
+            const fotoImg = document.createElement('img');
+            fotoImg.src = item.foto;
+            fotoImg.width = 150;
+            fotoCell.appendChild(fotoImg);
+        });
+    </script>
 </body>
 </html>
-
-
-
-
