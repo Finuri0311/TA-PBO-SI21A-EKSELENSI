@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,19 +19,19 @@
             justify-content: center;
         }
 
-       
+
         form {
-			background-color: #fff;
-			border-radius: 5px;
-			box-shadow: 0px 0px 10px #888888;
-			margin: 0 auto;
-			padding: 20px;
-			width: 400px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #888888;
+            margin: 0 auto;
+            padding: 20px;
+            width: 400px;
         }
 
-        
+
         h2 {
-			background-color: #4CAF50;
+            background-color: #4CAF50;
             border-radius: 5px 5px 0 0;
             color: #fff;
             font-size: 30px;
@@ -39,91 +40,142 @@
             align-items: center;
             justify-content: center;
             padding: 30px 25px 25px 25px;
-		}
+        }
 
 
-        .section_area{
+        .section_area {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
         }
 
 
-        .section_input{
+        .section_input {
             border-radius: 9px;
-			border: none;
-			display: block;
-			font-size: 12px;
-			margin-top: 10px 0;
-			padding: 10px;
-			width: 100%;
+            border: none;
+            display: block;
+            font-size: 12px;
+            margin-top: 10px 0;
+            padding: 10px;
+            width: 100%;
         }
 
- 
+
         .txt_component {
-			border-radius: 3px;
-			border: none;
-			box-shadow: 0px 0px 5px #888888;
-			display: block;
-			font-size: 16px;
-			margin-top: 10px 0;
-			padding: 10px;
-			width: 100%;
+            border-radius: 3px;
+            border: none;
+            box-shadow: 0px 0px 5px #888888;
+            display: block;
+            font-size: 16px;
+            margin-top: 10px 0;
+            padding: 10px;
+            width: 100%;
         }
 
 
         .btn_login {
-			background-color: #4CAF50;
-			border: none;
-			border-radius: 3px;
-			color: #fff;
-			cursor: pointer;
-			font-size: 16px;
-			margin-top: 10px;
-			padding: 10px;
-			width: 100%;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
         }
     </style>
 </head>
+
 <body>
 
-    <form> 
+    <form>
         <h2>Login Absensi Guru dan Laporan Kegiatan di TK Ar-rasyid</h2>
 
         <!-- Area Username -->
 
         <section class="section_area">
-        <!-- Area Label -->
-        <section class="section_label">
-            <label for="txt_username">Username:</label>
-        </section>
-
-        <!-- Area input -->
-        <section class="section_input">
-            <input type="text" name="txt_username" id="txt_username"
-            maxlength="10" placeholder="Masukan NIM" 
-            class="txt_component">
-        </section>
-
-
-        <!-- Area Password -->
-
-        <section class="section_area">
             <!-- Area Label -->
             <section class="section_label">
-                <label for="txt_password">Password:</label>
+                <label for="txt_username">Username:</label>
             </section>
-    
+
             <!-- Area input -->
             <section class="section_input">
-                <input type="text" name="txt_password" id="txt_password"
-                maxlength="6" placeholder="Masukan Password" 
-                class="txt_component">
+                <input type="text" name="txt_username" id="txt_username" maxlength="10" placeholder="Masukan NIM"
+                    class="txt_component">
             </section>
 
-            <!-- Area Buton a-->
-            <button type="submit" class="btn_login">Login</button>
+
+            <!-- Area Password -->
+
+            <section class="section_area">
+                <!-- Area Label -->
+                <section class="section_label">
+                    <label for="txt_password">Password:</label>
+                </section>
+
+                <!-- Area input -->
+                <section class="section_input">
+                    <input type="text" name="txt_password" id="txt_password" maxlength="6"
+                        placeholder="Masukan Password" class="txt_component" onpaste="return false"
+                        oncopy="return false">
+                </section>
+
+                <!-- Area Buton a-->
+                <button type="submit" class="btn_login">Login</button>
     </form>
 
-</body> 
-</html>
+    <!-- internal js -->
+    <script>
+        // inisialiasi variabel komponen
+        let txt_username = document.querySelector("#txt_username");
+        let txt_password = document.querySelector("#txt_password");
+
+        //  Arrow function agar isi data hanya dapat diisi angka
+        const keyNumber = (event) => {
+            if (event.key >= "0" && event.key <= "9") {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        //  Arrow function agar isi data hanya dapat diisi huruf dan spasi
+        const keyText = (event) => {
+            if (
+                (event.key >= "a" && event.key <= "z") ||
+                (event.key >= "A" && event.key <= "Z") ||
+                event.which == 32 || event.key == "."
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        //  Arrow function agar dapat berpindah ke komponen lain
+        const keyEnter = (event, component) => {
+            if (event.key == "Enter") {
+                component.focus();
+            }
+        };
+
+        // panggil fungsi "keyText" agar "txt_username" hanya dapat diisi huruf dan spasi
+        txt_username.addEventListener(
+            "keypress",
+            (event) => (event.returnValue = keyText(event))
+        );
+
+        // panggil fungsi "keyNumber" agar "txt_password" hanya dapat diisi angka
+        txt_password.addEventListener(
+            "keypress",
+            (event) => (event.returnValue = keyNumber(event))
+        );
+
+        // panggil fungsi "keyEnter" agar dapat berpindah dari komponen "txt_username" ke "txt_password"
+        txt_username.addEventListener("keyup", (event) => keyEnter(event, txt_password));
+        txt_password.addEventListener("keyup", (event) => keyEnter(event, txt_username));
+    </script>
+</body > 
+</html >
