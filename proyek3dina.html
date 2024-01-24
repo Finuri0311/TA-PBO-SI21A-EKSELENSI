@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan TK Ar-Rasyid</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid green;
+        }
+
+        th {
+            background-color: green;
+        }
+
+        tr:hover {background-color: #22e41b;}
+    </style>
+</head>
+<body>
+    <h1>Kegiatan TK Ar-Rasyid</h1>
+    <table id="kegiatanTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Tanggal</th>
+                <th>Nama Kegiatan</th>
+                <th>Keterangan</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Data akan dimasukkan ke sini -->
+        </tbody>
+    </table>
+
+    <button onclick="tambahData()">Tambah Data</button>
+
+    <script>
+        // Data dummy
+        const data = [
+            {
+                tanggal: '12/02/2023',
+                namaKegiatan: 'Hari Bersama Guru',
+                keterangan: 'Acara bersama guru dan siswa untuk meningkatkan hubungan',
+                foto: '1.jpg'
+            },
+            {
+                tanggal: '19/02/2023',
+                namaKegiatan: 'Pameran Seni',
+                keterangan: 'Olahraga',
+                foto: '2.jpg'
+            },
+            {
+                tanggal: '19/02/2023',
+                namaKegiatan: 'Pameran Seni',
+                keterangan: 'brkumpul bersama',
+                foto: '3.jpg'
+            }
+        ];
+
+        // Fungsi untuk menambahkan data ke tabel
+        function tambahData() {
+            const tableBody = document.getElementById('tableBody');
+            const newRow = tableBody.insertRow();
+
+            // Menambah kolom nomor
+            const nomorCell = newRow.insertCell();
+            nomorCell.textContent = data.length + 1;
+
+            // Menambah kolom tanggal
+            const tanggalCell = newRow.insertCell();
+            tanggalCell.textContent = data[data.length - 1].tanggal;
+
+            // Menambah kolom nama kegiatan
+            const namaKegiatanCell = newRow.insertCell();
+            namaKegiatanCell.textContent = data[data.length - 1].namaKegiatan;
+
+            // Menambah kolom keterangan
+            const keteranganCell = newRow.insertCell();
+            keteranganCell.textContent = data[data.length - 1].keterangan;
+
+            // Menambah kolom foto
+            const fotoCell = newRow.insertCell();
+            const fotoImg = document.createElement('img');
+            fotoImg.src = data[data.length - 1].foto;
+            fotoImg.width = 150;
+            fotoCell.appendChild(fotoImg);
+        }
+
+        // Menambahkan data ke tabel
+        data.forEach(item => {
+            const tableBody = document.getElementById('tableBody');
+            const newRow = tableBody.insertRow();
+
+            // Menambah kolom nomor
+            const nomorCell = newRow.insertCell();
+            nomorCell.textContent = data.indexOf(item) + 1;
+
+            // Menambah kolom tanggal
+            const tanggalCell = newRow.insertCell();
+            tanggalCell.textContent = item.tanggal;
+
+            // Menambah kolom nama kegiatan
+            const namaKegiatanCell = newRow.insertCell();
+            namaKegiatanCell.textContent = item.namaKegiatan;
+
+            // Menambah kolom keterangan
+            const keteranganCell = newRow.insertCell();
+            keteranganCell.textContent = item.keterangan;
+
+            // Menambah kolom foto
+            const fotoCell = newRow.insertCell();
+            const fotoImg = document.createElement('img');
+            fotoImg.src = item.foto;
+            fotoImg.width = 150;
+            fotoCell.appendChild(fotoImg);
+        });
+    </script>
+</body>
+</html>
